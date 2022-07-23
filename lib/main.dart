@@ -13,15 +13,20 @@ class MountieMobileAppMain extends StatefulWidget {
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return const CupertinoApp(
       theme: CupertinoThemeData(
-        barBackgroundColor: Color.fromARGB(255, 34, 34, 34),
+        barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
         primaryColor: Color.fromARGB(255, 20, 24, 255),
-        brightness: Brightness.dark,
+        //brightness: Brightness.dark,
       ),
       home: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(
-            middle: Image(image: AssetImage('mountie_icon.png'))),
+          middle: Image(
+            image: AssetImage('assets/mountie_icon.png'),
+            //height: 50,
+          ),
+          //padding: EdgeInsetsDirectional.all(4),
+        ),
         child: Center(child: Icon(CupertinoIcons.ant)),
       ),
     );
