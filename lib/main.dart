@@ -14,6 +14,11 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      localizationsDelegates: [
+        DefaultMaterialLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
       theme: const CupertinoThemeData(
         barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
         primaryColor: Color.fromARGB(255, 20, 24, 255),
