@@ -9,7 +9,7 @@ class MountieMobileAppMain extends StatefulWidget {
   @override
   State<MountieMobileAppMain> createState() => _MountieMobileAppState();
 }
-/*
+
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
                     image: AssetImage('assets/mountie_icon.png'),
                     //height: 50,
                   ),
-                  //padding: EdgeInsetsDirectional.all(4),
+                  padding: EdgeInsetsDirectional.all(2),
                 ),
                 child: Center(child: const Icon(CupertinoIcons.ant)),
               );
@@ -45,8 +45,9 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       ),
     );
   }
-}*/
+}
 
+/*
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
@@ -81,6 +82,13 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
                   backgroundColor: Color.fromARGB(255, 0, 47, 255),
                   //titleSpacing: 50,
                   toolbarHeight: 62,
+                  actions: [
+                    IconButton(
+                      onPressed: () => print('test'),
+                      icon: Icon(CupertinoIcons.line_horizontal_3),
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    )
+                  ],
                 ),
                 body: Center(child: const Icon(CupertinoIcons.ant)),
               );
@@ -90,4 +98,4 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       ),
     );
   }
-}
+}*/
