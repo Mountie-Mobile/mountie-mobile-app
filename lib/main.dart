@@ -21,6 +21,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       ),
       home: CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
           items: const [
             BottomNavigationBarItem(icon: Icon(CupertinoIcons.ant)),
             BottomNavigationBarItem(icon: Icon(CupertinoIcons.game_controller))
