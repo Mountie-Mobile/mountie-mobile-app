@@ -52,9 +52,6 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
                 ),
                 child: Center(child: Icon(CupertinoIcons.ant)),
               );
-              return index == 0
-                  ? PageTemplate("Hello World")
-                  : PageTemplate("Goodbye World");
             }),
           );
         },
@@ -62,7 +59,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
     );
   }
 }
-
+//Hello world
 /*
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
