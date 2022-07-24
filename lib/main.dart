@@ -30,6 +30,28 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         tabBuilder: (BuildContext context, int index) {
           return CupertinoTabView(
             builder: ((context) {
+              return CupertinoPageScaffold(
+                navigationBar: CupertinoNavigationBar(
+                  middle: Image(
+                    image: AssetImage('assets/mountie_icon.png'),
+                    //height: 50,
+                  ),
+                  padding: EdgeInsetsDirectional.all(2),
+                  trailing: CupertinoButton(
+                    onPressed: () => print('test'),
+                    child: Icon(
+                      //.bars or .line_horizontal_3
+                      CupertinoIcons.line_horizontal_3,
+                      color: CupertinoColors.white,
+                    ),
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(10),
+                    //minSize: 100,
+                    //color: CupertinoColors.white,
+                  ),
+                ),
+                child: Center(child: Icon(CupertinoIcons.ant)),
+              );
               return index == 0
                   ? PageTemplate("Hello World")
                   : PageTemplate("Goodbye World");
