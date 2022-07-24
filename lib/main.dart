@@ -58,7 +58,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       ],
       theme: const CupertinoThemeData(
         //barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
-        primaryColor: Color.fromARGB(255, 255, 255, 255),
+        primaryColor: Color.fromARGB(255, 0, 47, 255),
         //brightness: Brightness.dark,
       ),
       home: CupertinoTabScaffold(
@@ -75,10 +75,12 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
                 appBar: AppBar(
                   title: const Image(
                     image: AssetImage('assets/mountie_icon.png'),
-                    height: 50,
+                    height: 54,
                   ),
                   centerTitle: true,
                   backgroundColor: Color.fromARGB(255, 0, 47, 255),
+                  //titleSpacing: 50,
+                  toolbarHeight: 62,
                 ),
                 body: Center(child: const Icon(CupertinoIcons.ant)),
               );
