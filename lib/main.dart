@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'page.dart';
+import 'custom_widgets/page.dart';
 
 void main() => runApp(MountieMobileAppMain());
 

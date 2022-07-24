@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'custom_widgets/custom_nav_bar.dart';
+import './custom_nav_bar.dart';
 
 class PageTemplate extends StatelessWidget {
   String pageText;
