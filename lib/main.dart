@@ -23,8 +23,8 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         tabBar: CupertinoTabBar(
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
           items: const [
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.ant)),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.game_controller))
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.house_fill)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.sportscourt_fill))
           ],
         ),
         tabBuilder: (BuildContext context, int index) {
