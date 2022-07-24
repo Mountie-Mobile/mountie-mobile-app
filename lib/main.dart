@@ -53,9 +53,22 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         tabBuilder: (BuildContext context, int index) {
           return CupertinoTabView(
             builder: ((context) {
-              return index == 0
-                  ? PageTemplate("Hello World")
-                  : PageTemplate("Goodbye World");
+              if (index == 0) {
+                return PageTemplate("FirstPage");
+              }
+              if (index == 1) {
+                return PageTemplate("SecondPage");
+              }
+              if (index == 2) {
+                return PageTemplate("ThirdPage");
+              }
+              if (index == 3) {
+                return PageTemplate("FourthPage");
+              }
+              return PageTemplate("FifthPage");
+              // return index == 0
+              //     ? PageTemplate("Hello World")
+              //     : PageTemplate("Goodbye World");
             }),
           );
         },
