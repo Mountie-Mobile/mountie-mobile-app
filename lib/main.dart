@@ -21,7 +21,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       ],
       theme: const CupertinoThemeData(
         barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
-        primaryColor: Color.fromARGB(255, 20, 24, 255),
+        primaryColor: Color.fromARGB(255, 0, 47, 255),
         //brightness: Brightness.dark,
       ),
       home: CupertinoTabScaffold(
@@ -49,6 +49,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
               label: "Misc",
             ),
           ],
+          currentIndex: 2,
         ),
         tabBuilder: (BuildContext context, int index) {
           return CupertinoTabView(
