@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-void main() {
-  runApp(MountieMobileAppMain());
-}
+import 'page.dart';
+
+void main() => runApp(MountieMobileAppMain());
 
 class MountieMobileAppMain extends StatefulWidget {
   @override
@@ -51,6 +51,9 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
                 ),
                 child: Center(child: Icon(CupertinoIcons.ant)),
               );
+              return index == 0
+                  ? PageTemplate("Hello World")
+                  : PageTemplate("Goodbye World");
             }),
           );
         },
