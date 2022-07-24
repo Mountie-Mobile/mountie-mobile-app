@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'custom_widgets/page.dart';
+import 'custom_widgets/side_bar.dart';
 
 void main() => runApp(MountieMobileAppMain());
 
@@ -14,7 +15,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      localizationsDelegates: [
+      localizationsDelegates: const [
         DefaultMaterialLocalizations.delegate,
         DefaultCupertinoLocalizations.delegate,
         DefaultWidgetsLocalizations.delegate,
@@ -24,55 +25,67 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         primaryColor: Color.fromARGB(255, 0, 47, 255),
         //brightness: Brightness.dark,
       ),
-      home: CupertinoTabScaffold(
-        tabBar: CupertinoTabBar(
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.book_fill),
-              label: "Academia",
+      home: Stack(
+        //Moved this into a stack while making side bar, not needed now but may be used in the future.
+        children: [
+          CupertinoTabScaffold(
+            tabBar: CupertinoTabBar(
+              backgroundColor: Color.fromARGB(255, 255, 255, 255),
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.book_fill),
+                  label: "Academia",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.double_music_note),
+                  label: "Arts",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.house_fill),
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.sportscourt_fill),
+                  label: "Athletics",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(CupertinoIcons.ellipsis),
+                  label: "Misc",
+                ),
+              ],
+              currentIndex: 2,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.double_music_note),
-              label: "Arts",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.house_fill),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.sportscourt_fill),
-              label: "Athletics",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.ellipsis),
-              label: "Misc",
-            ),
-          ],
-          currentIndex: 2,
-        ),
-        tabBuilder: (BuildContext context, int index) {
-          return CupertinoTabView(
-            builder: ((context) {
-              if (index == 0) {
-                return PageTemplate("FirstPage");
-              }
-              if (index == 1) {
-                return PageTemplate("SecondPage");
-              }
-              if (index == 2) {
-                return PageTemplate("ThirdPage");
-              }
-              if (index == 3) {
-                return PageTemplate("FourthPage");
-              }
-              return PageTemplate("FifthPage");
-              // return index == 0
-              //     ? PageTemplate("Hello World")
-              //     : PageTemplate("Goodbye World");
-            }),
-          );
-        },
+            tabBuilder: (BuildContext context, int index) {
+              return CupertinoTabView(
+                builder: ((context) {
+                  if (index == 0) {
+                    return PageTemplate('First');
+                  }
+                  if (index == 1) {
+                    return PageTemplate('Second');
+                  }
+                  if (index == 2) {
+                    return PageTemplate('Third');
+                  }
+                  if (index == 3) {
+                    return PageTemplate('Fourth');
+                  }
+                  return PageTemplate('Fifth');
+                  // return index == 0
+                  //     ? PageTemplate("Hello World")
+                  //     : PageTemplate("Goodbye World");
+                }),
+              );
+            },
+          ),
+          Container(
+            // This is how the side bar overlaps everything else ;)
+            width: double.infinity,
+            height: double.infinity,
+            padding: EdgeInsets.only(),
+            child: SideBar(),
+          ),
+        ],
       ),
     );
   }

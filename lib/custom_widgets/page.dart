@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import './custom_nav_bar.dart';
+
+bool isDrawerOpen = true;
 
 class PageTemplate extends StatelessWidget {
   String pageText;
@@ -12,7 +13,13 @@ class PageTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CustomNavBar(),
-      child: Center(child: Text(pageText)),
+      child: Stack(
+        children: [
+          Center(
+            child: Text(pageText),
+          ),
+        ],
+      ),
     );
   }
 }
