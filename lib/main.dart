@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-void main() {
-  runApp(MountieMobileAppMain());
-}
+import 'page.dart';
+
+void main() => runApp(MountieMobileAppMain());
 
 class MountieMobileAppMain extends StatefulWidget {
   @override
@@ -29,16 +29,9 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         tabBuilder: (BuildContext context, int index) {
           return CupertinoTabView(
             builder: ((context) {
-              return const CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-                  middle: Image(
-                    image: AssetImage('assets/mountie_icon.png'),
-                    //height: 50,
-                  ),
-                  padding: EdgeInsetsDirectional.all(2),
-                ),
-                child: Center(child: const Icon(CupertinoIcons.ant)),
-              );
+              return index == 0
+                  ? PageTemplate("Hello World")
+                  : PageTemplate("Goodbye World");
             }),
           );
         },
