@@ -13,21 +13,35 @@ class MountieMobileAppMain extends StatefulWidget {
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      theme: CupertinoThemeData(
+    return CupertinoApp(
+      theme: const CupertinoThemeData(
         barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
         primaryColor: Color.fromARGB(255, 20, 24, 255),
         //brightness: Brightness.dark,
       ),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: Image(
-            image: AssetImage('assets/mountie_icon.png'),
-            //height: 50,
-          ),
-          //padding: EdgeInsetsDirectional.all(4),
+      home: CupertinoTabScaffold(
+        tabBar: CupertinoTabBar(
+          items: const [
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.ant)),
+            BottomNavigationBarItem(icon: Icon(CupertinoIcons.game_controller))
+          ],
         ),
-        child: Center(child: Icon(CupertinoIcons.ant)),
+        tabBuilder: (BuildContext context, int index) {
+          return CupertinoTabView(
+            builder: ((context) {
+              return const CupertinoPageScaffold(
+                navigationBar: CupertinoNavigationBar(
+                  middle: Image(
+                    image: AssetImage('assets/mountie_icon.png'),
+                    //height: 50,
+                  ),
+                  //padding: EdgeInsetsDirectional.all(4),
+                ),
+                child: Center(child: const Icon(CupertinoIcons.ant)),
+              );
+            }),
+          );
+        },
       ),
     );
   }
