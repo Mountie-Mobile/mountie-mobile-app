@@ -23,8 +23,26 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         tabBar: CupertinoTabBar(
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
           items: const [
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.house_fill)),
-            BottomNavigationBarItem(icon: Icon(CupertinoIcons.sportscourt_fill))
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.book_fill),
+              label: "Academia",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.double_music_note),
+              label: "Arts",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.house_fill),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.sportscourt_fill),
+              label: "Athletics",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.ellipsis),
+              label: "Misc",
+            ),
           ],
         ),
         tabBuilder: (BuildContext context, int index) {
