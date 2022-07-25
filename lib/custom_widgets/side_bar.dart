@@ -16,7 +16,7 @@ class _SideBarState extends State<SideBar> {
     return Stack(
       children: [
         AnimatedPositioned(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           curve: Curves.easeOutQuint,
           top: 0.0,
           bottom: 0.0,
@@ -37,13 +37,14 @@ class _SideBarState extends State<SideBar> {
               ],
             ),
             child: Container(
-              width: 2,
+              width: MediaQuery.of(context).size.width * .0001,
               //height: MediaQuery.of(context).size.height -
               //(kBottomNavigationBarHeight + 54),
               //color: Color.fromARGB(31, 0, 255, 8),
               //padding:
-              margin: const EdgeInsets.only(
-                top: kBottomNavigationBarHeight + 54,
+              margin: EdgeInsets.only(
+                top: kBottomNavigationBarHeight +
+                    MediaQuery.of(context).size.height * .065,
               ),
               child: Column(
                 children: [
@@ -52,13 +53,13 @@ class _SideBarState extends State<SideBar> {
                     color: Color.fromARGB(50, 39, 39, 39),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         Image(
                           image: AssetImage('assets/side_bar_mountie_icon.png'),
-                          color: Color.fromARGB(255, 0, 47, 255),
-                          height: 60,
+                          color: const Color.fromARGB(255, 0, 47, 255),
+                          height: MediaQuery.of(context).size.height * .07,
                         ),
-                        Text(
+                        const Text(
                           'Events',
                           style: TextStyle(
                             color: Color.fromARGB(255, 0, 47, 255),
@@ -77,17 +78,22 @@ class _SideBarState extends State<SideBar> {
         CupertinoButton(
           onPressed: () => setState(() => isDrawerOpen = !isDrawerOpen),
           //color: Color.fromARGB(255, 255, 255, 255),
-          minSize: 50,
+          //minSize: MediaQuery.of(context).size.height * .061,
           padding: EdgeInsets.only(
-              top: kBottomNavigationBarHeight,
-              left: MediaQuery.of(context).size.width - 50,
-              right: 4),
+            top: MediaQuery.of(context).viewPadding.top +
+                MediaQuery.of(context).size.height * .005,
+            left: MediaQuery.of(context).size.width -
+                (MediaQuery.of(context).size.width * .11),
+            right: MediaQuery.of(context).size.width * .03,
+            //bottom: kFloatingActionButtonMargin,
+          ),
+
           child: Icon(
             isDrawerOpen ? CupertinoIcons.chevron_forward : CupertinoIcons.bars,
             color: isDrawerOpen
                 ? Color.fromARGB(255, 153, 153, 153)
                 : Color.fromARGB(255, 255, 255, 255),
-            size: 50,
+            size: MediaQuery.of(context).size.height * .061,
           ),
         ),
       ],

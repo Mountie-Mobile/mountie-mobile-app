@@ -20,16 +20,16 @@ class _CustomNavBarState extends State<CustomNavBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: Container(
-        padding: EdgeInsets.all(4),
-        child: const Image(
+        padding: EdgeInsets.all(MediaQuery.of(context).size.height * .003),
+        child: Image(
           image: AssetImage('assets/mountie_icon.png'),
-          height: 54,
+          height: MediaQuery.of(context).size.height * .069,
         ),
       ),
       primary: true,
       centerTitle: true,
       backgroundColor: Color.fromARGB(200, 0, 47, 255),
-      toolbarHeight: 62,
+      toolbarHeight: MediaQuery.of(context).size.height * .075,
       /*actions: [   (MIGHT COME BACK LATER)
         CupertinoButton(
           onPressed: () => setState(() => isDrawerOpen = !isDrawerOpen),

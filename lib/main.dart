@@ -23,7 +23,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
       theme: const CupertinoThemeData(
         barBackgroundColor: Color.fromARGB(255, 0, 47, 255),
         primaryColor: Color.fromARGB(255, 0, 47, 255),
-        //brightness: Brightness.dark,
+        brightness: Brightness.light,
       ),
       home: Stack(
         //Moved this into a stack, which is needed for the side bar
