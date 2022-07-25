@@ -26,7 +26,7 @@ class _MountieMobileAppState extends State<MountieMobileAppMain> {
         //brightness: Brightness.dark,
       ),
       home: Stack(
-        //Moved this into a stack while making side bar, not needed now but may be used in the future.
+        //Moved this into a stack, which is needed for the side bar
         children: [
           CupertinoTabScaffold(
             tabBar: CupertinoTabBar(
