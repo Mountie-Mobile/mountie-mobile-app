@@ -16,8 +16,8 @@ class _SideBarState extends State<SideBar> {
     return Stack(
       children: [
         AnimatedPositioned(
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeIn,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeOutQuint,
           top: 0.0,
           bottom: 0.0,
           right:
@@ -36,7 +36,42 @@ class _SideBarState extends State<SideBar> {
                 ),
               ],
             ),
-            /*child: THIS WILL BE WHERE WE CAN PUT SIDE BAR BUTTONS AND ETC,*/
+            child: Container(
+              width: 2,
+              //height: MediaQuery.of(context).size.height -
+              //(kBottomNavigationBarHeight + 54),
+              //color: Color.fromARGB(31, 0, 255, 8),
+              //padding:
+              margin: const EdgeInsets.only(
+                top: kBottomNavigationBarHeight + 54,
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(0),
+                    color: Color.fromARGB(50, 39, 39, 39),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Image(
+                          image: AssetImage('assets/side_bar_mountie_icon.png'),
+                          color: Color.fromARGB(255, 0, 47, 255),
+                          height: 60,
+                        ),
+                        Text(
+                          'Events',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 0, 47, 255),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
         CupertinoButton(

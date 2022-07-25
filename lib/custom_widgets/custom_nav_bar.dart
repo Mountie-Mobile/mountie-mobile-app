@@ -20,11 +20,12 @@ class _CustomNavBarState extends State<CustomNavBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: Container(
-          padding: EdgeInsets.all(4),
-          child: const Image(
-            image: AssetImage('assets/mountie_icon.png'),
-            height: 54,
-          )),
+        padding: EdgeInsets.all(4),
+        child: const Image(
+          image: AssetImage('assets/mountie_icon.png'),
+          height: 54,
+        ),
+      ),
       primary: true,
       centerTitle: true,
       backgroundColor: Color.fromARGB(200, 0, 47, 255),
