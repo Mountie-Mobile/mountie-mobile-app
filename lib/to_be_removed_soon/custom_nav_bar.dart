@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+//import './side_bar.dart';
+
 class CustomNavBar extends StatefulWidget
     implements ObstructingPreferredSizeWidget {
+  const CustomNavBar({Key? key}) : super(key: key);
+
   @override
   _CustomNavBarState createState() => _CustomNavBarState();
 
@@ -16,6 +20,10 @@ class CustomNavBar extends StatefulWidget
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
+  //bool isDrawerOpen = false;
+
+  //final bool navDrawerOpen;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -28,11 +36,13 @@ class _CustomNavBarState extends State<CustomNavBar> {
       ),
       primary: true,
       centerTitle: true,
-      backgroundColor: Color.fromARGB(200, 0, 47, 255),
+      backgroundColor: Color.fromARGB(50, 0, 47, 255),
       toolbarHeight: MediaQuery.of(context).size.height * .075,
-      /*actions: [   (MIGHT COME BACK LATER)
+      actions: [
         CupertinoButton(
-          onPressed: () => setState(() => isDrawerOpen = !isDrawerOpen),
+          onPressed: () {
+            print('test');
+          },
           //color: Color.fromARGB(255, 255, 255, 255),
           minSize: 46,
           padding: EdgeInsets.all(4),
@@ -42,10 +52,12 @@ class _CustomNavBarState extends State<CustomNavBar> {
             size: 46,
           ),
         ),
-      ],*/
+      ],
     );
   }
 }
+
+
 
 
 // TO DELETE BELOW AFTER WE FIGURE OUT SIDE BAR SWITCHING PAGES

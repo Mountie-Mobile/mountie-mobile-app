@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({Key? key}) : super(key: key);
+  //bool isDrawerOpenJ;
+
+  SideBar({Key? key}) : super(key: key);
 
   @override
-  State<SideBar> createState() => _SideBarState();
+  State<SideBar> createState() => SideBarState();
 }
 
-class _SideBarState extends State<SideBar> {
-  bool isDrawerOpen = false;
+class SideBarState extends State<SideBar> {
+  //Widget.isDrawerOpenJ(isDrawerOpenL)
+  bool _isDrawerOpenJ = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +24,15 @@ class _SideBarState extends State<SideBar> {
           top: 0.0,
           bottom: 0.0,
           right:
-              isDrawerOpen ? 0 : -(MediaQuery.of(context).size.width / 3) * 2,
+              _isDrawerOpenJ ? 0 : -(MediaQuery.of(context).size.width / 3) * 2,
           child: Container(
             width: (MediaQuery.of(context).size.width / 3) * 2,
             height: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Color.fromARGB(255, 0, 0, 0),
               boxShadow: [
                 BoxShadow(
-                  color: isDrawerOpen
+                  color: _isDrawerOpenJ
                       ? Colors.black.withOpacity(0.8)
                       : Colors.black.withOpacity(0),
                   blurRadius: 200.0,
@@ -75,19 +78,12 @@ class _SideBarState extends State<SideBar> {
             ),
           ),
         ),
-        CupertinoButton(
+        /*CupertinoButton(
           onPressed: () => setState(() => isDrawerOpen = !isDrawerOpen),
           //color: Color.fromARGB(255, 255, 255, 255),
           //minSize: MediaQuery.of(context).size.height * .061,
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).viewPadding.top +
-                MediaQuery.of(context).size.height * .005,
-            left: MediaQuery.of(context).size.width -
-                (MediaQuery.of(context).size.width * .11),
-            right: MediaQuery.of(context).size.width * .03,
-            //bottom: kFloatingActionButtonMargin,
-          ),
-
+          alignment: Alignment.centerRight,
+          padding: EdgeInsets.only(),
           child: Icon(
             isDrawerOpen ? CupertinoIcons.chevron_forward : CupertinoIcons.bars,
             color: isDrawerOpen
@@ -95,7 +91,7 @@ class _SideBarState extends State<SideBar> {
                 : Color.fromARGB(255, 255, 255, 255),
             size: MediaQuery.of(context).size.height * .061,
           ),
-        ),
+        ),*/
       ],
     );
   }
