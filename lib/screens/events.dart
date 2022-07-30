@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import './event_pages/temp_page.dart';
+import 'event_pages/academia.dart';
+import 'event_pages/arts.dart';
+import 'event_pages/athletics.dart';
+import 'event_pages/home.dart';
+import 'event_pages/misc.dart';
 
 class EventsPage extends StatefulWidget {
   const EventsPage({Key? key}) : super(key: key);
@@ -44,18 +48,18 @@ class _EventsPageState extends State<EventsPage> {
         return CupertinoTabView(
           builder: ((context) {
             if (index == 0) {
-              return PageTemplate('First');
+              return AcademiaEventPage();
             }
             if (index == 1) {
-              return PageTemplate('Second');
+              return ArtsEventPage();
             }
             if (index == 2) {
-              return PageTemplate('Third');
+              return HomeEventPage();
             }
             if (index == 3) {
-              return PageTemplate('Fourth');
+              return AthleticsEventPage();
             }
-            return PageTemplate('Fifth');
+            return MiscEventPage();
             // return index == 0
             //     ? PageTemplate("Hello World")
             //     : PageTemplate("Goodbye World");

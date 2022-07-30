@@ -1,10 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class PageTemplate extends StatelessWidget {
-  String pageText;
-
-  PageTemplate(this.pageText);
-
+class AcademiaEventPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -12,7 +8,7 @@ class PageTemplate extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child: Text(pageText),
+            child: Text('Academia'),
           ),
         ],
       ),

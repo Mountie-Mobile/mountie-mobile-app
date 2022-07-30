@@ -80,7 +80,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                 CupertinoButton(
                   onPressed: () => setState(() => _isDrawerOpen = true),
                   //color: Color.fromARGB(255, 255, 255, 255),
-                  minSize: 46,
+                  minSize: MediaQuery.of(context).size.height * .069,
                   padding: EdgeInsets.all(4),
                   child: Icon(
                     CupertinoIcons.bars,
@@ -98,7 +98,8 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
 
           AnimatedPositioned(
             duration: const Duration(milliseconds: 500),
-            curve: Curves.easeOutQuint,
+            curve: Curves.linearToEaseOut,
+            //easeOutQuint
             top: 0.0,
             bottom: 0.0,
             right: _isDrawerOpen
@@ -166,10 +167,11 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                               // SIDE BAR EVENT BUTTON
                               //
                               CupertinoButton(
+                                //color: Color.fromARGB(255, 153, 153, 153),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Image(
+                                    /*Image(
                                       image: AssetImage(
                                           'assets/side_bar_mountie_icon.png'),
                                       color: _eventsPage
@@ -178,7 +180,16 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                       height:
                                           MediaQuery.of(context).size.height *
                                               .07,
-                                    ),
+                                    ),*/
+                                    Icon(CupertinoIcons.bell,
+                                        color: _eventsPage
+                                            ? Color.fromARGB(255, 0, 47, 255)
+                                            : Color.fromARGB(
+                                                255, 153, 153, 153),
+                                        size:
+                                            MediaQuery.of(context).size.height *
+                                                .05),
+                                    SizedBox(width: 8),
                                     Text(
                                       'Events',
                                       style: TextStyle(
@@ -217,6 +228,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                         size:
                                             MediaQuery.of(context).size.height *
                                                 .05),
+                                    SizedBox(width: 8),
                                     Text(
                                       'Search',
                                       style: TextStyle(
@@ -255,6 +267,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                         size:
                                             MediaQuery.of(context).size.height *
                                                 .05),
+                                    SizedBox(width: 8),
                                     Text(
                                       'Calendar',
                                       style: TextStyle(
@@ -293,6 +306,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                         size:
                                             MediaQuery.of(context).size.height *
                                                 .05),
+                                    SizedBox(width: 8),
                                     Text(
                                       'Settings',
                                       style: TextStyle(
@@ -323,6 +337,10 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                .005),
                                     Icon(CupertinoIcons.link,
                                         color: _linksPage
                                             ? Color.fromARGB(255, 0, 47, 255)
@@ -330,7 +348,12 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                                 255, 153, 153, 153),
                                         size:
                                             MediaQuery.of(context).size.height *
-                                                .05),
+                                                .04),
+                                    SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.height *
+                                                    .005 +
+                                                8),
                                     Text(
                                       'Important Links',
                                       style: TextStyle(

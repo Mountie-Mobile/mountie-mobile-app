@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class SearchPage extends StatelessWidget {
+class MiscEventPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -8,7 +8,7 @@ class SearchPage extends StatelessWidget {
       child: Stack(
         children: [
           Center(
-            child: Text('Search'),
+            child: Text('Misc'),
           ),
         ],
       ),

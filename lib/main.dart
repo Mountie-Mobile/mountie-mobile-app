@@ -9,10 +9,10 @@ class MountieMobileAppMain extends StatefulWidget {
   const MountieMobileAppMain({Key? key}) : super(key: key);
 
   @override
-  State<MountieMobileAppMain> createState() => MountieMobileAppState();
+  State<MountieMobileAppMain> createState() => _MountieMobileAppState();
 }
 
-class MountieMobileAppState extends State<MountieMobileAppMain> {
+class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
     return const CupertinoApp(
