@@ -105,73 +105,78 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
             right: _isDrawerOpen
                 ? 0
                 : -(MediaQuery.of(context).size.width / 3) * 2,
-            child: Container(
-              width: (MediaQuery.of(context).size.width / 3) * 2,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 255, 255, 255),
-                boxShadow: [
-                  BoxShadow(
-                    color: _isDrawerOpen
-                        ? Colors.black.withOpacity(0.8)
-                        : Colors.black.withOpacity(0),
-                    blurRadius: 200.0,
-                  ),
-                ],
-              ),
+            child: GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails) =>
+                  setState(() => _isDrawerOpen = false),
               child: Container(
-                width: double.infinity,
+                width: (MediaQuery.of(context).size.width / 3) * 2,
                 height: double.infinity,
-                child: Stack(
-                  children: [
-                    //
-                    // BACK BUTTON
-                    //
-                    Container(
-                      padding: const EdgeInsets.all(0),
-                      color: Color.fromARGB(49, 255, 255, 255),
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            top: kToolbarHeight * .6,
-                            right: MediaQuery.of(context).size.width * .01,
-                            // need to replace with cupertino button
-                            child: GestureDetector(
-                              onTap: () =>
-                                  setState(() => _isDrawerOpen = false),
-                              child: Icon(
-                                CupertinoIcons.chevron_forward,
-                                color: Color.fromARGB(255, 153, 153, 153),
-                                size: MediaQuery.of(context).size.height * .061,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  boxShadow: [
+                    BoxShadow(
+                      color: _isDrawerOpen
+                          ? Colors.black.withOpacity(0.8)
+                          : Colors.black.withOpacity(0),
+                      blurRadius: 200.0,
+                    ),
+                  ],
+                ),
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: Stack(
+                    children: [
+                      //
+                      // BACK BUTTON
+                      //
+                      Container(
+                        padding: const EdgeInsets.all(0),
+                        color: Color.fromARGB(49, 255, 255, 255),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: kToolbarHeight * .6,
+                              right: MediaQuery.of(context).size.width * .01,
+                              // need to replace with cupertino button
+                              child: GestureDetector(
+                                onTap: () =>
+                                    setState(() => _isDrawerOpen = false),
+                                child: Icon(
+                                  CupertinoIcons.chevron_forward,
+                                  color: Color.fromARGB(255, 153, 153, 153),
+                                  size:
+                                      MediaQuery.of(context).size.height * .061,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    //
-                    // LIST OF BUTTONS CONTAINER
-                    //
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        width: double.infinity,
-                        height: MediaQuery.of(context).size.height -
-                            kToolbarHeight * 1.6,
-                        //color: Color.fromARGB(117, 44, 44, 44),
-                        child: Padding(
-                          padding: const EdgeInsets.only(),
-                          child: Column(
-                            children: <Widget>[
-                              //
-                              // SIDE BAR EVENT BUTTON
-                              //
-                              CupertinoButton(
-                                //color: Color.fromARGB(255, 153, 153, 153),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    /*Image(
+                      //
+                      // LIST OF BUTTONS CONTAINER
+                      //
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height -
+                              kToolbarHeight * 1.6,
+                          //color: Color.fromARGB(117, 44, 44, 44),
+                          child: Padding(
+                            padding: const EdgeInsets.only(),
+                            child: Column(
+                              children: <Widget>[
+                                //
+                                // SIDE BAR EVENT BUTTON
+                                //
+                                CupertinoButton(
+                                  //color: Color.fromARGB(255, 153, 153, 153),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      /*Image(
                                       image: AssetImage(
                                           'assets/side_bar_mountie_icon.png'),
                                       color: _eventsPage
@@ -181,208 +186,220 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                           MediaQuery.of(context).size.height *
                                               .07,
                                     ),*/
-                                    Icon(CupertinoIcons.bell,
-                                        color: _eventsPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                .05),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Events',
-                                      style: TextStyle(
-                                        color: _eventsPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
+                                      Icon(CupertinoIcons.bell,
+                                          color: _eventsPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Events',
+                                        style: TextStyle(
+                                          color: _eventsPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    setState(() => _currentPage = 0);
+                                    setState(() => _isDrawerOpen = false);
+                                    setState(() => _eventsPage = true);
+                                    setState(() => _searchPage = false);
+                                    setState(() => _calendarPage = false);
+                                    setState(() => _settingsPage = false);
+                                    setState(() => _linksPage = false);
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() => _currentPage = 0);
-                                  setState(() => _isDrawerOpen = false);
-                                  setState(() => _eventsPage = true);
-                                  setState(() => _searchPage = false);
-                                  setState(() => _calendarPage = false);
-                                  setState(() => _settingsPage = false);
-                                  setState(() => _linksPage = false);
-                                },
-                              ),
-                              //
-                              // SIDE BAR SEARCH BUTTON
-                              //
-                              CupertinoButton(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(CupertinoIcons.search,
-                                        color: _searchPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                .05),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Search',
-                                      style: TextStyle(
-                                        color: _searchPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
+                                //
+                                // SIDE BAR SEARCH BUTTON
+                                //
+                                CupertinoButton(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(CupertinoIcons.search,
+                                          color: _searchPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Search',
+                                        style: TextStyle(
+                                          color: _searchPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    setState(() => _currentPage = 1);
+                                    setState(() => _isDrawerOpen = false);
+                                    setState(() => _eventsPage = false);
+                                    setState(() => _searchPage = true);
+                                    setState(() => _calendarPage = false);
+                                    setState(() => _settingsPage = false);
+                                    setState(() => _linksPage = false);
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() => _currentPage = 1);
-                                  setState(() => _isDrawerOpen = false);
-                                  setState(() => _eventsPage = false);
-                                  setState(() => _searchPage = true);
-                                  setState(() => _calendarPage = false);
-                                  setState(() => _settingsPage = false);
-                                  setState(() => _linksPage = false);
-                                },
-                              ),
-                              //
-                              // SIDE BAR CALENDAR BUTTON
-                              //
-                              CupertinoButton(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(CupertinoIcons.calendar,
-                                        color: _calendarPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                .05),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Calendar',
-                                      style: TextStyle(
-                                        color: _calendarPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
+                                //
+                                // SIDE BAR CALENDAR BUTTON
+                                //
+                                CupertinoButton(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(CupertinoIcons.calendar,
+                                          color: _calendarPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Calendar',
+                                        style: TextStyle(
+                                          color: _calendarPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    setState(() => _currentPage = 2);
+                                    setState(() => _isDrawerOpen = false);
+                                    setState(() => _eventsPage = false);
+                                    setState(() => _searchPage = false);
+                                    setState(() => _calendarPage = true);
+                                    setState(() => _settingsPage = false);
+                                    setState(() => _linksPage = false);
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() => _currentPage = 2);
-                                  setState(() => _isDrawerOpen = false);
-                                  setState(() => _eventsPage = false);
-                                  setState(() => _searchPage = false);
-                                  setState(() => _calendarPage = true);
-                                  setState(() => _settingsPage = false);
-                                  setState(() => _linksPage = false);
-                                },
-                              ),
-                              //
-                              // SIDE BAR SETTINGS BUTTON
-                              //
-                              CupertinoButton(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Icon(CupertinoIcons.gear,
-                                        color: _settingsPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                .05),
-                                    SizedBox(width: 8),
-                                    Text(
-                                      'Settings',
-                                      style: TextStyle(
-                                        color: _settingsPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
+                                //
+                                // SIDE BAR SETTINGS BUTTON
+                                //
+                                CupertinoButton(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Icon(CupertinoIcons.gear,
+                                          color: _settingsPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        'Settings',
+                                        style: TextStyle(
+                                          color: _settingsPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    setState(() => _currentPage = 3);
+                                    setState(() => _isDrawerOpen = false);
+                                    setState(() => _eventsPage = false);
+                                    setState(() => _searchPage = false);
+                                    setState(() => _calendarPage = false);
+                                    setState(() => _settingsPage = true);
+                                    setState(() => _linksPage = false);
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() => _currentPage = 3);
-                                  setState(() => _isDrawerOpen = false);
-                                  setState(() => _eventsPage = false);
-                                  setState(() => _searchPage = false);
-                                  setState(() => _calendarPage = false);
-                                  setState(() => _settingsPage = true);
-                                  setState(() => _linksPage = false);
-                                },
-                              ),
-                              //
-                              // SIDE BAR LINKS BUTTON
-                              //
-                              CupertinoButton(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.height *
-                                                .005),
-                                    Icon(CupertinoIcons.link,
-                                        color: _linksPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        size:
-                                            MediaQuery.of(context).size.height *
-                                                .04),
-                                    SizedBox(
-                                        width:
-                                            MediaQuery.of(context).size.height *
-                                                    .005 +
-                                                8),
-                                    Text(
-                                      'Important Links',
-                                      style: TextStyle(
-                                        color: _linksPage
-                                            ? Color.fromARGB(255, 0, 47, 255)
-                                            : Color.fromARGB(
-                                                255, 153, 153, 153),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 25,
+                                //
+                                // SIDE BAR LINKS BUTTON
+                                //
+                                CupertinoButton(
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .005),
+                                      Icon(CupertinoIcons.link,
+                                          color: _linksPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .04),
+                                      SizedBox(
+                                          width: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  .005 +
+                                              8),
+                                      Text(
+                                        'Important Links',
+                                        style: TextStyle(
+                                          color: _linksPage
+                                              ? Color.fromARGB(255, 0, 47, 255)
+                                              : Color.fromARGB(
+                                                  255, 153, 153, 153),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 25,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    setState(() => _currentPage = 4);
+                                    setState(() => _isDrawerOpen = false);
+                                    setState(() => _eventsPage = false);
+                                    setState(() => _searchPage = false);
+                                    setState(() => _calendarPage = false);
+                                    setState(() => _settingsPage = false);
+                                    setState(() => _linksPage = true);
+                                  },
                                 ),
-                                onPressed: () {
-                                  setState(() => _currentPage = 4);
-                                  setState(() => _isDrawerOpen = false);
-                                  setState(() => _eventsPage = false);
-                                  setState(() => _searchPage = false);
-                                  setState(() => _calendarPage = false);
-                                  setState(() => _settingsPage = false);
-                                  setState(() => _linksPage = true);
-                                },
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
