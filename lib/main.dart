@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 
 import 'page_scaffold.dart';
 
@@ -15,6 +16,10 @@ class MountieMobileAppMain extends StatefulWidget {
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
     return const CupertinoApp(
       localizationsDelegates: [
         DefaultMaterialLocalizations.delegate,

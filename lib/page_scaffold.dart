@@ -21,6 +21,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
 
   bool _eventsPage = true;
   bool _searchPage = false;
+
   bool _calendarPage = false;
   bool _settingsPage = false;
   bool _linksPage = false;
@@ -37,7 +38,10 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
 
           Container(
             width: double.infinity,
-            padding: EdgeInsets.only(top: kToolbarHeight * 2),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top +
+                    MediaQuery.of(context).size.height * .075),
+            //color: Color.fromARGB(255, 255, 0, 0),
             child: Stack(
               children: [
                 if (_currentPage == 0) ...[
@@ -136,7 +140,11 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                         child: Stack(
                           children: [
                             Positioned(
-                              top: kToolbarHeight * .6,
+                              top: MediaQuery.of(context).padding.top +
+                                  ((MediaQuery.of(context).size.height *
+                                          .0375) -
+                                      (MediaQuery.of(context).size.height *
+                                          .0305)),
                               right: MediaQuery.of(context).size.width * .01,
                               // need to replace with cupertino button
                               child: GestureDetector(
@@ -161,7 +169,8 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                         child: Container(
                           width: double.infinity,
                           height: MediaQuery.of(context).size.height -
-                              kToolbarHeight * 1.6,
+                              (MediaQuery.of(context).padding.top +
+                                  MediaQuery.of(context).size.height * .075),
                           //color: Color.fromARGB(117, 44, 44, 44),
                           child: Padding(
                             padding: const EdgeInsets.only(),
