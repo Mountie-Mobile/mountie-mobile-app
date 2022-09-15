@@ -97,6 +97,28 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
           ),
 
           //
+          // SIDE BAR FADE BOX BEHIND IT
+          //
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 0),
+            curve: Curves.linear,
+            top: 0.0,
+            bottom: 0.0,
+            right: _isDrawerOpen ? 0 : -MediaQuery.of(context).size.width,
+            child: GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails) =>
+                  setState(() => _isDrawerOpen = false),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(150, 0, 0, 0),
+                ),
+              ),
+            ),
+          ),
+
+          //
           // SIDE BAR
           //
 
@@ -120,9 +142,9 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                   boxShadow: [
                     BoxShadow(
                       color: _isDrawerOpen
-                          ? Colors.black.withOpacity(0.8)
+                          ? Colors.black.withOpacity(0.2)
                           : Colors.black.withOpacity(0),
-                      blurRadius: 200.0,
+                      blurRadius: 20.0,
                     ),
                   ],
                 ),
