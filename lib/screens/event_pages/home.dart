@@ -8,6 +8,7 @@ class HomeEventPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
+            //Announcement box
             child: Container(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
               margin: const EdgeInsets.fromLTRB(50, 0, 50, 10),
@@ -27,13 +28,15 @@ class HomeEventPage extends StatelessWidget {
                   Radius.circular(20),
                 ),
               ),
-              child: const Text(
-                "Welcome to the new and improved Mountie Mobile 2! On the bottom, there is a navigator to the various categories of events from our school. If you click the 3 lines button, you can navigate to other various screens within the app.",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: 17,
+              child: const Center(
+                child: Text(
+                  "Welcome to the new and improved Mountie Mobile 2! On the bottom, there is a navigator to the various categories of events from our school. If you click the 3 lines button, you can navigate to other various screens within the app.",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 17,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
           ),

@@ -5,11 +5,14 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       //navigationBar: CustomNavBar(),
-      child: Stack(
+      child: Column(
         children: [
-          Center(
-            child: Text('Search'),
-          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: const CupertinoSearchTextField(
+              placeholder: "Search Mountie Events...",
+            ),
+          )
         ],
       ),
     );
