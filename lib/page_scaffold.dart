@@ -97,6 +97,39 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
           ),
 
           //
+          // BLACK BOX ABOVE NAV BAR
+          //
+          Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).padding.top,
+            //padding: EdgeInsets.all(0),
+            color: Colors.black,
+            alignment: Alignment.topCenter,
+          ),
+
+          //
+          // SIDE BAR FADE BOX BEHIND IT
+          //
+          AnimatedPositioned(
+            duration: const Duration(milliseconds: 0),
+            curve: Curves.linear,
+            top: 0.0,
+            bottom: 0.0,
+            right: _isDrawerOpen ? 0 : -MediaQuery.of(context).size.width,
+            child: GestureDetector(
+              onHorizontalDragEnd: (DragEndDetails) =>
+                  setState(() => _isDrawerOpen = false),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(150, 0, 0, 0),
+                ),
+              ),
+            ),
+          ),
+
+          //
           // SIDE BAR
           //
 
@@ -104,7 +137,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
             duration: const Duration(milliseconds: 500),
             curve: Curves.linearToEaseOut,
             //easeOutQuint
-            top: 0.0,
+            top: MediaQuery.of(context).padding.top,
             bottom: 0.0,
             right: _isDrawerOpen
                 ? 0
@@ -114,15 +147,16 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                   setState(() => _isDrawerOpen = false),
               child: Container(
                 width: (MediaQuery.of(context).size.width / 3) * 2,
-                height: double.infinity,
+                height: MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 255, 255, 255),
                   boxShadow: [
                     BoxShadow(
                       color: _isDrawerOpen
-                          ? Colors.black.withOpacity(0.8)
+                          ? Colors.black.withOpacity(0.2)
                           : Colors.black.withOpacity(0),
-                      blurRadius: 200.0,
+                      blurRadius: 20.0,
                     ),
                   ],
                 ),
@@ -140,11 +174,9 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                         child: Stack(
                           children: [
                             Positioned(
-                              top: MediaQuery.of(context).padding.top +
-                                  ((MediaQuery.of(context).size.height *
-                                          .0375) -
-                                      (MediaQuery.of(context).size.height *
-                                          .0305)),
+                              top: ((MediaQuery.of(context).size.height *
+                                      .0375) -
+                                  (MediaQuery.of(context).size.height * .0305)),
                               right: MediaQuery.of(context).size.width * .01,
                               // need to replace with cupertino button
                               child: GestureDetector(
@@ -168,12 +200,12 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height -
-                              (MediaQuery.of(context).padding.top +
-                                  MediaQuery.of(context).size.height * .075),
+                          height: double.infinity,
                           //color: Color.fromARGB(117, 44, 44, 44),
                           child: Padding(
-                            padding: const EdgeInsets.only(),
+                            padding: EdgeInsets.only(
+                                top: (MediaQuery.of(context).size.height *
+                                    .075)),
                             child: Column(
                               children: <Widget>[
                                 //
