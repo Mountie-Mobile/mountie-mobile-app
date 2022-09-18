@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'link_buttons/link_button.dart';
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinksPage extends StatelessWidget {
@@ -60,12 +60,21 @@ class LinksPage extends StatelessWidget {
           SizedBox(height: 8),
 
           //
-          // WIFI BUTTON ********* NEED TO WORK ON AHHHHH
+          // WIFI BUTTON ********* NEED CHECK ON IPHONE
           CupertinoButton(
-            onPressed: () {
-              _launchUrl(
-                  'https://hac20.esp.k12.ar.us/HomeAccess20/Account/LogOn?ReturnUrl=%2fHomeAccess20');
-            },
+            onPressed: () => showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text('WIFI'),
+                content: const Text('GUEST\nPassword: honor500'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, 'OK'),
+                    child: const Text('OK'),
+                  ),
+                ],
+              ),
+            ),
             color: const Color.fromARGB(255, 0, 47, 255),
             padding: const EdgeInsets.all(4),
             child: Container(
