@@ -33,7 +33,7 @@ class HomeEventPage extends StatelessWidget {
                   "Welcome to the new and improved Mountie Mobile 2! On the bottom, there is a navigator to the various categories of events from our school. If you click the 3 lines button, you can navigate to other various screens within the app.",
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 17,
+                    fontSize: 16,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -41,7 +41,7 @@ class HomeEventPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 20, 0, 425),
+            margin: const EdgeInsets.fromLTRB(0, 20, 0, 350),
             child: const Text(
               "Upcoming Events:",
               style: TextStyle(

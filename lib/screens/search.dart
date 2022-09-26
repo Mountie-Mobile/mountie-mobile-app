@@ -12,7 +12,7 @@ class SearchPage extends StatelessWidget {
             child: const CupertinoSearchTextField(
               placeholder: "Search Mountie Events...",
             ),
-          )
+          ),
         ],
       ),
     );

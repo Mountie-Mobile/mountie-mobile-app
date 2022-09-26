@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:native_notify/native_notify.dart';
 
 import 'page_scaffold.dart';
 
-void main() => runApp(MountieMobileAppMain());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NativeNotify.initialize(1829, 'cSsj3YIbfvYsMuiTfBbTv9', null, null);
+  runApp(MountieMobileAppMain());
+}
 
 class MountieMobileAppMain extends StatefulWidget {
   const MountieMobileAppMain({Key? key}) : super(key: key);
