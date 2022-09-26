@@ -20,6 +20,12 @@ class MountieMobileAppMain extends StatefulWidget {
 
 class _MountieMobileAppState extends State<MountieMobileAppMain> {
   @override
+  void initState() {
+    super.initState();
+    NativeNotify.registerIOSDevice();
+  }
+
+  @override
   Widget build(BuildContext context) {
     WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setPreferredOrientations(
