@@ -28,8 +28,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
 
   @override
   Widget build(BuildContext context) {
-    double _sidebarButtonTextSize =
-        3 * MediaQuery.of(context).size.height * .01;
+    double _sidebarButtonTextSize = 6 * MediaQuery.of(context).size.width * .01;
 
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
