@@ -65,12 +65,19 @@ class LinksPage extends StatelessWidget {
             onPressed: () => showDialog<String>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
-                title: const Text('WIFI'),
-                content: const Text('GUEST\nPassword: honor500'),
+                title: const Text(
+                  'WIFI',
+                  style: TextStyle(fontWeight: FontWeight.w900),
+                ),
+                content: const Text('Name: GUEST\nPassword: honor500'),
                 actions: <Widget>[
-                  TextButton(
+                  CupertinoButton(
+                    //color: Color.fromARGB(255, 0, 47, 255),
                     onPressed: () => Navigator.pop(context, 'OK'),
-                    child: const Text('OK'),
+                    child: const Text(
+                      'OK',
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),
