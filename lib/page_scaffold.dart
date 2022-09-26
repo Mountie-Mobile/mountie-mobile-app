@@ -28,6 +28,9 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
 
   @override
   Widget build(BuildContext context) {
+    double _sidebarButtonTextSize =
+        3 * MediaQuery.of(context).size.height * .01;
+
     return CupertinoPageScaffold(
       backgroundColor: Colors.white,
       child: Stack(
@@ -245,7 +248,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                               : Color.fromARGB(
                                                   255, 153, 153, 153),
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 25,
+                                          fontSize: _sidebarButtonTextSize,
                                         ),
                                       ),
                                     ],
@@ -286,7 +289,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                               : Color.fromARGB(
                                                   255, 153, 153, 153),
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 25,
+                                          fontSize: _sidebarButtonTextSize,
                                         ),
                                       ),
                                     ],
@@ -327,7 +330,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                               : Color.fromARGB(
                                                   255, 153, 153, 153),
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 25,
+                                          fontSize: _sidebarButtonTextSize,
                                         ),
                                       ),
                                     ],
@@ -368,7 +371,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                               : Color.fromARGB(
                                                   255, 153, 153, 153),
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 25,
+                                          fontSize: _sidebarButtonTextSize,
                                         ),
                                       ),
                                     ],
@@ -419,7 +422,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                                               : Color.fromARGB(
                                                   255, 153, 153, 153),
                                           fontWeight: FontWeight.w500,
-                                          fontSize: 25,
+                                          fontSize: _sidebarButtonTextSize,
                                         ),
                                       ),
                                     ],
