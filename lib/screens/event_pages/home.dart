@@ -7,13 +7,14 @@ class HomeEventPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: MediaQuery.of(context).size.height * .025),
           Center(
             //Announcement box
             child: Container(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-              margin: const EdgeInsets.fromLTRB(50, 0, 50, 10),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               width: 350,
               height: 190,
               decoration: const BoxDecoration(
@@ -43,7 +44,11 @@ class HomeEventPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 20.0, bottom: 300),
+            padding: EdgeInsets.fromLTRB(
+                0,
+                MediaQuery.of(context).size.height * .025,
+                0,
+                MediaQuery.of(context).size.height * .015),
             child: const Text(
               "Upcoming Events:",
               style: TextStyle(
@@ -57,6 +62,7 @@ class HomeEventPage extends StatelessWidget {
             category: 5,
             icon: Icon(CupertinoIcons.add),
           )
+          // Maybe use this to space between events unless you use padding somewhere else??? SizedBox(height: MediaQuery.of(context).size.height * .025),
         ],
       ),
     );
