@@ -10,16 +10,20 @@ class Event extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(10),
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(20),
           ),
           color: Color.fromARGB(175, 163, 157, 157)),
-      height: 50,
-      width: 150,
+      height: 60,
+      width: 300,
       child: Text(
         title,
         textAlign: TextAlign.center,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
