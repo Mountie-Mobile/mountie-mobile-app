@@ -14,8 +14,8 @@ class _CalendarPageState extends State<CalendarPage> {
   //CalendarFormat format = CalendarFormat.month;
   //Map<DateTime, List<Event>>
   var selectedEvents = {
-    DateTime(2022, 8, 15): [Event(title: 'test', category: 0)],
-    DateTime(2022, 8, 18): [Event(title: 'test2', category: 0)],
+    //DateTime(2022, 8, 15): [Event(title: 'test', category: 0)],
+    //DateTime(2022, 8, 18): [Event(title: 'test2', category: 0,)],
   };
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();

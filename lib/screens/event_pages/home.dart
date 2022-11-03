@@ -43,7 +43,7 @@ class HomeEventPage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.fromLTRB(0, 20, 0, 350),
+            margin: const EdgeInsets.only(top: 20.0, bottom: 300),
             child: const Text(
               "Upcoming Events:",
               style: TextStyle(
@@ -52,7 +52,11 @@ class HomeEventPage extends StatelessWidget {
               ),
             ),
           ),
-          Event(title: "Basketball", category: 5)
+          Event(
+            title: "Basketball",
+            category: 5,
+            icon: Icon(CupertinoIcons.add),
+          )
         ],
       ),
     );
