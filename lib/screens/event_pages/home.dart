@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'events.dart';
+import '../../custom_widgets/events.dart';
 
 class HomeEventPage extends StatelessWidget {
   @override
