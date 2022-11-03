@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import 'events.dart';
+
 class HomeEventPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,8 @@ class HomeEventPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-          )
+          ),
+          Event(title: "Basketball", category: 5)
         ],
       ),
     );

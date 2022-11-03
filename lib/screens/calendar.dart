@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mountie_mobile_app/screens/event_pages/events.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/material.dart';
-import 'calendar_events/events.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
