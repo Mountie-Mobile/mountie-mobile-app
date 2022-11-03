@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'screens/events.dart';
+import 'screens/eventTabs.dart';
 import 'screens/search.dart';
 import 'screens/calendar.dart';
 import 'screens/settings.dart';
