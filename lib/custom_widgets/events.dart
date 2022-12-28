@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class Event extends StatefulWidget {
   final String title;
   final int category;
-  final IconData customIcon;
+  final AssetImage customIcon;
   final String date_time;
 
   int getCategory() {
@@ -74,14 +74,20 @@ class _EventState extends State<Event> {
               ),
               const Spacer(flex: 1),
               Container(
-                alignment: Alignment.center,
-                child: Icon(
+                  alignment: Alignment.center,
+                  child: Image(
+                    image: widget.customIcon,
+                    height: 40,
+                    width: 40,
+                  )
+
+                  /*Icon(
                   //Display custom icon
                   widget.customIcon,
                   size: 40,
                   color: const Color.fromARGB(255, 0, 0, 0),
-                ),
-              )
+                ),*/
+                  )
             ],
           ),
         ),
