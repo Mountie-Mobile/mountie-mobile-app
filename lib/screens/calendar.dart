@@ -3,6 +3,8 @@ import 'package:mountie_mobile_app/custom_widgets/events.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/material.dart';
 
+import '../custom_widgets/events_list.dart';
+
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
 
@@ -13,27 +15,51 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   //CalendarFormat format = CalendarFormat.month;
   //Map<DateTime, List<Event>>
-  var selectedEvents = {
-    //DateTime(2022, 8, 15): [Event(title: 'test', category: 0)],
-    //DateTime(2022, 8, 18): [Event(title: 'test2', category: 0,)],
-  };
+  //var selectedEvents = eventList;
+
+  List<Event> _makeEventList(DateTime date) {
+    List<Event> toReturn = [];
+
+    for (DateTime time in eventList.keys) {
+      print("date below");
+      print(date.toString());
+      print("time below");
+      print(time.toString());
+      if (time.compareTo(date) == 0) {
+        toReturn.add(eventList[time] as Event);
+        print("******************************");
+      }
+    }
+
+    print(toReturn);
+    return toReturn;
+  }
+
+  // sets selected and focused date to now (today)
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
   @override
   void initState() {
-    selectedEvents = {};
+    //selectedEvents = {};
     super.initState();
   }
 
+  @override
+  void dispose() {
+    //selectedEvents.dispose();
+    super.dispose();
+  }
+
   List<Event> _getEventsForDay(DateTime date) {
-    return selectedEvents[date] ?? [];
+    return _makeEventList(date);
+    //selectedEvents[date] ?? [];
   }
 
   //TEMP, think we can do a for loop to add all events from database
   // selectedEvents[DateTime(2022,8,15)].add(
-  //   Event(title: 'first test', calendar: 1),
-  // );
+  //    Event(title: 'first test', calendar: 1),
+  //  );
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +169,11 @@ class _CalendarPageState extends State<CalendarPage> {
               return isSameDay(selectedDay, date);
             },
           ),
-          ..._getEventsForDay(selectedDay).map(
+          /*..._getEventsForDay(selectedDay).map(
             (Event event) => ListTile(
               title: Text(event.title),
             ),
-          ),
+          ),*/
         ],
       ),
     );

@@ -5,7 +5,9 @@ class Event extends StatefulWidget {
   final String title;
   final int category;
   final AssetImage customIcon;
-  final String date_time;
+  final String dateTime;
+  //final DateTime backendDateTime;
+  //int numOfEvents = 0;
 
   int getCategory() {
     return category;
@@ -15,12 +17,17 @@ class Event extends StatefulWidget {
     return title;
   }
 
-  const Event(
-      {super.key,
-      required this.title,
-      required this.category,
-      required this.customIcon,
-      required this.date_time});
+  /*DateTime getDateTime() {
+    return backendDateTime;
+  }*/
+
+  Event({
+    super.key,
+    required this.title,
+    required this.category,
+    required this.customIcon,
+    required this.dateTime,
+  });
 
   @override
   State<Event> createState() => _EventState();
@@ -64,7 +71,7 @@ class _EventState extends State<Event> {
                   ),
                   Text(
                     //Display date and time
-                    widget.date_time,
+                    widget.dateTime,
                     style: const TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 15,
