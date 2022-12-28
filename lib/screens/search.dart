@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+import 'package:mountie_mobile_app/custom_widgets/events_list.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -7,21 +8,36 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  TextEditingController controller = TextEditingController(text: "Settings");
+  late TextEditingController controller = TextEditingController(text: "");
+  @override
+  void initState() {
+    super.initState();
+    controller = TextEditingController(text: 'initial text');
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       //navigationBar: CustomNavBar(),
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: const CupertinoSearchTextField(
-              placeholder: "Search Mountie Events...",
-              autofocus: true,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: CupertinoSearchTextField(
+                controller: controller,
+                placeholder: "Search Mountie Events...",
+              ),
             ),
-          ),
-        ],
+            EventList()
+          ],
+        ),
       ),
     );
   }

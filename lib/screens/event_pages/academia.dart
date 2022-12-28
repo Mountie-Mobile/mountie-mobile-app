@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-class AcademiaEventPage extends StatelessWidget {
+class AcademiaEventPage extends StatefulWidget {
+  @override
+  State<AcademiaEventPage> createState() => _AcademiaEventPageState();
+}
+
+class _AcademiaEventPageState extends State<AcademiaEventPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(

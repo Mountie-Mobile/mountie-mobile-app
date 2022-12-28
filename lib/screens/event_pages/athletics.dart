@@ -1,6 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mountie_mobile_app/custom_widgets/events.dart';
+import 'package:mountie_mobile_app/custom_widgets/events_list.dart';
 
-class AthleticsEventPage extends StatelessWidget {
+class AthleticsEventPage extends StatefulWidget {
+  @override
+  State<AthleticsEventPage> createState() => _AthleticsEventPageState();
+}
+
+class _AthleticsEventPageState extends State<AthleticsEventPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
