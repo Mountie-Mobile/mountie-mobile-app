@@ -6,7 +6,7 @@ class Event extends StatefulWidget {
   final int category;
   final AssetImage customIcon;
   final String dateTime;
-  //final DateTime backendDateTime;
+  final DateTime backendDateTime;
   //int numOfEvents = 0;
 
   int getCategory() {
@@ -27,6 +27,7 @@ class Event extends StatefulWidget {
     required this.category,
     required this.customIcon,
     required this.dateTime,
+    required this.backendDateTime,
   });
 
   @override
@@ -81,20 +82,13 @@ class _EventState extends State<Event> {
               ),
               const Spacer(flex: 1),
               Container(
-                  alignment: Alignment.center,
-                  child: Image(
-                    image: widget.customIcon,
-                    height: 40,
-                    width: 40,
-                  )
-
-                  /*Icon(
-                  //Display custom icon
-                  widget.customIcon,
-                  size: 40,
-                  color: const Color.fromARGB(255, 0, 0, 0),
-                ),*/
-                  )
+                alignment: Alignment.center,
+                child: Image(
+                  image: widget.customIcon,
+                  height: 40,
+                  width: 40,
+                ),
+              ),
             ],
           ),
         ),

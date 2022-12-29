@@ -21,17 +21,12 @@ class _CalendarPageState extends State<CalendarPage> {
     List<Event> toReturn = [];
 
     for (DateTime time in eventList.keys) {
-      print("date below");
-      print(date.toString());
-      print("time below");
-      print(time.toString());
-      if (time.compareTo(date) == 0) {
+      if (time.year == date.year &&
+          time.month == date.month &&
+          time.day == date.day) {
         toReturn.add(eventList[time] as Event);
-        print("******************************");
       }
     }
-
-    print(toReturn);
     return toReturn;
   }
 
@@ -63,6 +58,11 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Event> listOfEvents = [];
+    for (Event time in eventList.values) {
+      listOfEvents.add(time);
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -112,47 +112,48 @@ class _CalendarPageState extends State<CalendarPage> {
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
             ),
-            calendarStyle: const CalendarStyle(
-              defaultTextStyle: TextStyle(
+            calendarStyle: CalendarStyle(
+              defaultTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
-              weekendTextStyle: TextStyle(
+              weekendTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
-              outsideTextStyle: TextStyle(
+              outsideTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 150, 150, 150),
               ),
-              todayTextStyle: TextStyle(
+              todayTextStyle: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 0, 47, 255),
               ),
-              todayDecoration: BoxDecoration(
+              todayDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 240, 240, 240),
                 shape: BoxShape.circle,
               ),
               isTodayHighlighted: true,
-              markersMaxCount: 4,
-              selectedDecoration: BoxDecoration(
+              selectedDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 0, 47, 255),
                 shape: BoxShape.circle,
               ),
-              selectedTextStyle: TextStyle(
+              selectedTextStyle: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
-              markerDecoration: BoxDecoration(
+              markerDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 153, 153, 153),
                 shape: BoxShape.circle,
               ),
-              markerSize: 20,
+              markersMaxCount: 4,
+              markerMargin: const EdgeInsets.all(1),
+              markerSize: MediaQuery.of(context).size.height * .008,
             ),
 
             //
@@ -169,22 +170,10 @@ class _CalendarPageState extends State<CalendarPage> {
               return isSameDay(selectedDay, date);
             },
           ),
-          /*..._getEventsForDay(selectedDay).map(
-            (Event event) => ListTile(
-              title: Text(event.title),
-            ),
-          ),*/
+          const SizedBox(height: 6),
+          ..._getEventsForDay(selectedDay).map((Event event) => event),
         ],
       ),
     );
   }
 }
-
-
-/*        onFormatChanged: (CalendarFormat _format) {
-          setState(
-            () {
-              format = _format;
-            },
-          );
-        },*/
