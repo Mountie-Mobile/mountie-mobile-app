@@ -195,6 +195,87 @@ class LinksPage extends StatelessWidget {
               child: const Center(child: Text('Find your counselor')),
             ),
           ),
+          SizedBox(height: 6),
+
+          //
+          // RHS Social Media Buttons
+          //
+
+          Container(
+            margin: const EdgeInsets.fromLTRB(50, 20, 50, 10),
+            child: const Center(
+              child: Text(
+                "RHS Social Media",
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 6),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CupertinoButton(
+                onPressed: () {
+                  _launchUrl('https://www.instagram.com/rhsmounties/');
+                },
+                //color: Color.fromARGB(255, 255, 255, 255),
+                minSize: MediaQuery.of(context).size.height * .069,
+                padding: const EdgeInsets.fromLTRB(0, 0, 14, 0),
+                child: Image(
+                  image: const AssetImage(
+                      'assets/social_media_icons/instagram.png'),
+                  height: MediaQuery.of(context).size.width * .14,
+                  width: MediaQuery.of(context).size.width * .14,
+                ),
+              ),
+              CupertinoButton(
+                onPressed: () {
+                  _launchUrl('https://twitter.com/RHSMounties');
+                },
+                //color: Color.fromARGB(255, 255, 255, 255),
+                minSize: MediaQuery.of(context).size.height * .069,
+                padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+                child: Image(
+                  image:
+                      const AssetImage('assets/social_media_icons/twitter.png'),
+                  height: MediaQuery.of(context).size.width * .14,
+                  width: MediaQuery.of(context).size.width * .14,
+                ),
+              ),
+              CupertinoButton(
+                onPressed: () {
+                  _launchUrl('https://m.facebook.com/100063684754371/');
+                },
+                //color: Color.fromARGB(255, 255, 255, 255),
+                minSize: MediaQuery.of(context).size.height * .069,
+                padding: const EdgeInsets.fromLTRB(14, 0, 14, 0),
+                child: Image(
+                  image: const AssetImage(
+                      'assets/social_media_icons/facebook.png'),
+                  height: MediaQuery.of(context).size.width * .14,
+                  width: MediaQuery.of(context).size.width * .14,
+                ),
+              ),
+              CupertinoButton(
+                onPressed: () {
+                  _launchUrl('https://www.youtube.com/@rogershighschooltv3168');
+                },
+                //color: Color.fromARGB(255, 255, 255, 255),
+                minSize: MediaQuery.of(context).size.height * .069,
+                padding: const EdgeInsets.fromLTRB(14, 0, 0, 0),
+                child: Image(
+                  image:
+                      const AssetImage('assets/social_media_icons/youtube.png'),
+                  height: MediaQuery.of(context).size.width * .14,
+                  width: MediaQuery.of(context).size.width * .14,
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

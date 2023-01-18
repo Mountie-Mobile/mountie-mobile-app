@@ -74,7 +74,7 @@ class _PageScaffoldCustomState extends State<PageScaffoldCustom> {
                 padding:
                     EdgeInsets.all(MediaQuery.of(context).size.height * .003),
                 child: Image(
-                  image: AssetImage('assets/mountie_icon.png'),
+                  image: AssetImage('assets/main_icons/mountie_icon.png'),
                   height: MediaQuery.of(context).size.height * .069,
                 ),
               ),

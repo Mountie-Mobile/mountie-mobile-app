@@ -3,6 +3,8 @@ import 'package:mountie_mobile_app/custom_widgets/events.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter/material.dart';
 
+import '../custom_widgets/events_list.dart';
+
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
 
@@ -13,30 +15,54 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   //CalendarFormat format = CalendarFormat.month;
   //Map<DateTime, List<Event>>
-  var selectedEvents = {
-    //DateTime(2022, 8, 15): [Event(title: 'test', category: 0)],
-    //DateTime(2022, 8, 18): [Event(title: 'test2', category: 0,)],
-  };
+  //var selectedEvents = eventList;
+
+  List<Event> _makeEventList(DateTime date) {
+    List<Event> toReturn = [];
+
+    for (DateTime time in eventList.keys) {
+      if (time.year == date.year &&
+          time.month == date.month &&
+          time.day == date.day) {
+        toReturn.add(eventList[time] as Event);
+      }
+    }
+    return toReturn;
+  }
+
+  // sets selected and focused date to now (today)
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
   @override
   void initState() {
-    selectedEvents = {};
+    //selectedEvents = {};
     super.initState();
   }
 
+  @override
+  void dispose() {
+    //selectedEvents.dispose();
+    super.dispose();
+  }
+
   List<Event> _getEventsForDay(DateTime date) {
-    return selectedEvents[date] ?? [];
+    return _makeEventList(date);
+    //selectedEvents[date] ?? [];
   }
 
   //TEMP, think we can do a for loop to add all events from database
   // selectedEvents[DateTime(2022,8,15)].add(
-  //   Event(title: 'first test', calendar: 1),
-  // );
+  //    Event(title: 'first test', calendar: 1),
+  //  );
 
   @override
   Widget build(BuildContext context) {
+    List<Event> listOfEvents = [];
+    for (Event time in eventList.values) {
+      listOfEvents.add(time);
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -86,47 +112,48 @@ class _CalendarPageState extends State<CalendarPage> {
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
             ),
-            calendarStyle: const CalendarStyle(
-              defaultTextStyle: TextStyle(
+            calendarStyle: CalendarStyle(
+              defaultTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
-              weekendTextStyle: TextStyle(
+              weekendTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 60, 60, 60),
               ),
-              outsideTextStyle: TextStyle(
+              outsideTextStyle: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Color.fromARGB(255, 150, 150, 150),
               ),
-              todayTextStyle: TextStyle(
+              todayTextStyle: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 0, 47, 255),
               ),
-              todayDecoration: BoxDecoration(
+              todayDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 240, 240, 240),
                 shape: BoxShape.circle,
               ),
               isTodayHighlighted: true,
-              markersMaxCount: 4,
-              selectedDecoration: BoxDecoration(
+              selectedDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 0, 47, 255),
                 shape: BoxShape.circle,
               ),
-              selectedTextStyle: TextStyle(
+              selectedTextStyle: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Color.fromARGB(255, 255, 255, 255),
               ),
-              markerDecoration: BoxDecoration(
+              markerDecoration: const BoxDecoration(
                 color: Color.fromARGB(255, 153, 153, 153),
                 shape: BoxShape.circle,
               ),
-              markerSize: 20,
+              markersMaxCount: 4,
+              markerMargin: const EdgeInsets.all(1),
+              markerSize: MediaQuery.of(context).size.height * .008,
             ),
 
             //
@@ -143,22 +170,10 @@ class _CalendarPageState extends State<CalendarPage> {
               return isSameDay(selectedDay, date);
             },
           ),
-          ..._getEventsForDay(selectedDay).map(
-            (Event event) => ListTile(
-              title: Text(event.title),
-            ),
-          ),
+          const SizedBox(height: 6),
+          ..._getEventsForDay(selectedDay).map((Event event) => event),
         ],
       ),
     );
   }
 }
-
-
-/*        onFormatChanged: (CalendarFormat _format) {
-          setState(
-            () {
-              format = _format;
-            },
-          );
-        },*/
